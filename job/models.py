@@ -35,14 +35,14 @@ class Job(models.Model):
 
 class Category(models.Model):
     name=models.CharField(max_length=40)
-    logo=models.CharField(max_length=30)
+    logo=models.CharField(max_length=30,null=True,blank=True)
 
     def __str__(self):
         return self.name
 
 class Company(models.Model):
      name=models.CharField(max_length=50)
-     logo=models.ImageField('company')
+     logo=models.ImageField(upload_to='company')
      subtitle=models.TextField(max_length=1000)
      website=models.URLField()
      email=models.EmailField()
