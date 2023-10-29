@@ -20,11 +20,11 @@ def job_detail_api(request,id):
 
 
 
-class joblistapi(generics.ListAPIView):
+class joblistapi(generics.ListCreateAPIView):
     queryset=Job.objects.all()
     serializer_class=Jobserailzers
 
 
-class jobdetailapi(generics.RetrieveAPIView):
+class jobdetailapi(generics.RetrieveUpdateDestroyAPIView):
     queryset=Job.objects.all()
     serializer_class=Jobserailzers    
