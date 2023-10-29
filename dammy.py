@@ -57,7 +57,7 @@ def create_job(n):
 
 
         )
-        print(f"{n} job was added successfully")
+    print(f"{n} job was added successfully")
 
 create_categroy(5)
 create_company(100)

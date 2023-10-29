@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 #my apps
-    
+    'rest_framework',
     'django.contrib.humanize',
     'job',
     'django_countries',
