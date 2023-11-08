@@ -3,7 +3,7 @@ from .models import Job
 
 # Create your views here.
 def job_list(request):
-    all_jobs=Job.objects.all()
+    all_jobs=Job.objects.all().order_by('-id')
     return render(request,'job/job_list.html',{'jobs':all_jobs})
 
 
