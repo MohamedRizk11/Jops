@@ -52,3 +52,14 @@ class Company(models.Model):
      def __str__(self):
         return self.name
     
+
+
+class jobapply(models.Model):
+    job=models.ForeignKey(Job,related_name='apply_job',on_delete=models.CASCADE)
+    username=models.CharField(max_length=50)
+    email=models.EmailField()
+    cv =models.FileField(upload_to='cv',)
+    linked_url=models.URLField(null=True,blank=True,help_text='please enter your linkedin profile')
+    github_url=models.URLField(null=True,blank=True,help_text='please enter your github profile')
+    coverlater=models.CharField(max_length=500,help_text='please enter your note here...')
+    create_at =models.DateTimeField(default=timezone.now)

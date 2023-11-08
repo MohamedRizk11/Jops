@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.humanize',
     'django_filters',
+    "bootstrap4",
     'django_summernote',
     'job',
     

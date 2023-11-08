@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Job
+from django.views.generic import CreateView
+from .models import Job ,jobapply
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 def job_list(request):
@@ -23,3 +26,16 @@ def job_detail(request,slug):
     job=Job.objects.get(slug=slug)
     return render(request,'job/job_detail.html',{'job':job})
 
+
+class jobapply(CreateView):
+    model=jobapply
+    success_url='/jobs/'
+    fields=['username','email','cv','linked_url','github_url','coverlater']
+
+    def form_valid(self, form):
+        slug = self.kwargs.get('slug')
+        job=get_object_or_404(Job,slug=slug)
+        job_apply=form.save(commit=False)
+        job_apply.job=job
+        job_apply.save()
+        return super().form_valid(form)
