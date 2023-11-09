@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import CreateView
 from .models import Job ,jobapply 
 from django.shortcuts import get_object_or_404
-from .forms import JobApplyForm
+from .forms import JobApplyForm,jobform
 
 
 # Create your views here.
@@ -46,4 +46,5 @@ class jobapply(CreateView):
 class AddJob(CreateView)    :
     model=Job
     success_url='/jobs/'
-    fields=[ 'title','loction','company','salary_start','salary_end','description','vecancy','job_nature','experience','category']
+   # fields=[ 'title','loction','company','salary_start','salary_end','description','vecancy','job_nature','experience','category']
+    form_class=jobform
