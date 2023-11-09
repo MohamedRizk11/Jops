@@ -2,7 +2,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.utils import timezone
 from django.utils.text import slugify
-from django.db import models
+
 # Create your models here.
 
 
@@ -68,3 +68,4 @@ class jobapply(models.Model):
 
     def __str__(self):
         return self.username
+    
