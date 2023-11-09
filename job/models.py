@@ -2,6 +2,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.utils import timezone
 from django.utils.text import slugify
+from django.db import models
 # Create your models here.
 
 
@@ -61,5 +62,9 @@ class jobapply(models.Model):
     cv =models.FileField(upload_to='cv',)
     linked_url=models.URLField(null=True,blank=True,help_text='please enter your linkedin profile')
     github_url=models.URLField(null=True,blank=True,help_text='please enter your github profile')
-    coverlater=models.CharField(max_length=500,help_text='please enter your note here...')
+    coverlater=models.TextField(max_length=500,help_text='please enter your note here...')
     create_at =models.DateTimeField(default=timezone.now)
+
+
+    def __str__(self):
+        return self.username

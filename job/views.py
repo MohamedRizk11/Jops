@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import CreateView
 from .models import Job ,jobapply
 from django.shortcuts import get_object_or_404
+from .forms import JobApplyForm
 
 
 # Create your views here.
@@ -30,7 +31,8 @@ def job_detail(request,slug):
 class jobapply(CreateView):
     model=jobapply
     success_url='/jobs/'
-    fields=['username','email','cv','linked_url','github_url','coverlater']
+    #fields=['username','email','cv','linked_url','github_url','coverlater']
+    form_class=JobApplyForm
 
     def form_valid(self, form):
         slug = self.kwargs.get('slug')
