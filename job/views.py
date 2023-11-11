@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import CreateView
+from django.db.models import Q , F
 from .models import Job ,jobapply 
 from django.shortcuts import get_object_or_404
 from .forms import JobApplyForm,jobform
 
+
+def mydebug(request):
+    data=Job.objects.select_related().all()
+    return render(request,'job/debug.html',{"data":data})
 
 # Create your views here.
 def job_list(request):

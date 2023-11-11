@@ -1,11 +1,12 @@
 
 from django.urls import path
-from .views import job_list,job_detail,jobapply,AddJob
+from .views import job_list,job_detail,jobapply,AddJob,mydebug
 from .api import job_list_api ,job_detail_api,joblistapi,jobdetailapi
 
 urlpatterns = [
     path('', job_list),
     path('add/', AddJob.as_view()),
+    path('mydebug/', mydebug),
     path('<slug:slug>', job_detail),
     path('<slug:slug>/apply', jobapply.as_view()),
     path('api/list/<int:pk>',jobdetailapi.as_view()),

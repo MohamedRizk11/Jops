@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('jobs/',include('job.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
     path('summernote/', include('django_summernote.urls')),
 ]
 
